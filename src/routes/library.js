@@ -1,17 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const Library = require("../models/Library");
-
+const { checkJwt } = require("../authz/check-jwt");
 
 
 
 //Get users entire Library
 
-router.get("/", async (req, res) => {
+router.get("/", checkJwt, async (req, res) => {
   try{
     const library = await Library.find();
     res.json(library)
-    console.log(JSON.stringify(req.oidc.user));
   }
   catch(err){
     res.status(400).json({message: err})

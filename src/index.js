@@ -6,7 +6,6 @@ const app = express();
 const bodyParser = require('body-parser')
 require("dotenv/config");
 const { clientOrigins, serverPort } = require("./config/env.dev");
-
 app.use(bodyParser.json())
 app.use(helmet());
 app.use(cors({ origin: clientOrigins }));
