@@ -7,15 +7,15 @@ const { checkJwt } = require("../authz/check-jwt");
 
 //Get users entire Library
 
-router.get("/", checkJwt, async (req, res) => {
-  try{
-    const library = await Library.find();
-    res.json(library)
-  }
-  catch(err){
-    res.status(400).json({message: err})
-  }
-});
+// router.get("/", checkJwt, async (req, res) => {
+//   try{
+//     const library = await Library.find();
+//     res.json(library)
+//   }
+//   catch(err){
+//     res.status(400).json({message: err})
+//   }
+// });
 
 //Get users Top Ten
 
