@@ -17,9 +17,8 @@ const libraryPosts = require('./routes/library')
 const Users = require('./models/Library')
 app.use('/library', libraryPosts)
 
-app.get("/", async (req, res) => {
-  const users = await Users.find();
-  console.log(users)
+app.get("/", (req, res) => {
+
   res.send("We are running");
 });
 
