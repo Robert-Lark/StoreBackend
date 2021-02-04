@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     res.json(library)
   }
   catch(err){
-    res.status(400).json({message: "there was an error"})
+    res.status(400).json({message: `there was an error: ${err}`})
   }
 });
 
