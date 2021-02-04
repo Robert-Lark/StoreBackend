@@ -14,10 +14,12 @@ app.use(cors({ origin: clientOrigins }));
 //IMPORT ROUTES
 
 const libraryPosts = require('./routes/library')
-
+const users = require('./models/Library')
 app.use('/library', libraryPosts)
 
 app.get("/", (req, res) => {
+  const users = await users.find();
+  console.log(users)
   res.send("We are running");
 });
 
