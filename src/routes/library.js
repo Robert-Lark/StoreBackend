@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Library = require("../models/Library");
+const User = require("../models/User");
 
 
 
@@ -9,7 +9,7 @@ const Library = require("../models/Library");
 
 router.get("/", async (req, res) => {
   try{
-    const library = await Library.find();
+    const library = await User.find();
     res.json(library)
   }
   catch(err){
