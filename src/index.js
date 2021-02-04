@@ -5,7 +5,8 @@ const helmet = require("helmet");
 const app = express();
 const bodyParser = require('body-parser')
 require("dotenv/config");
-const { clientOrigins, serverPort } = require("./config/env.dev");
+const { clientOrigins } = require("./config/env.dev");
+const PORT = process.env.PORT || 6060
 app.use(bodyParser.json())
 app.use(helmet());
 app.use(cors({ origin: clientOrigins }));
@@ -29,7 +30,7 @@ mongoose.connect(
   () => console.log("connected to db")
 );
 
-app.listen(serverPort, () =>
-  console.log(`API Server listening on port ${serverPort}`)
+app.listen(PORT, () =>
+  console.log(`API Server listening on port ${PORT}`)
 );
 
