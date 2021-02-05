@@ -24,8 +24,8 @@ app.get("/", (req, res) => {
 app.use(express.json());
 
 //import routes
-const postRoute = require('./Routes/devEdLibrary')
-const authRoute = require("./Routes/devEdAuth");
+const postRoute = require('./routes/devEdLibrary')
+const authRoute = require("./routes/devEdAuth");
 //route middleware
 app.use("/api/user", authRoute);
 app.use("/api/posts", postRoute);
