@@ -22,13 +22,13 @@ app.get("/", (req, res) => {
 
 //Middleware
 app.use(express.json());
+
+//import routes
+const postRoute = require('./Routes/devEdLibrary')
+const authRoute = require("./Routes/devEdAuth");
 //route middleware
 app.use("/api/user", authRoute);
 app.use("/api/posts", postRoute);
-//import routes
-const postRoute = require('./Routes/posts')
-const authRoute = require("./Routes/auth");
-
 //Connect to db
 mongoose.connect(
   process.env.DB_CONNECTION,

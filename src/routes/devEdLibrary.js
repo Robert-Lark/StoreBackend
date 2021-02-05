@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const verify = require("../model/verifyToken");
-
+const verify = require("../models/devEdverifyToken");
 
 router.get("/", verify, (req, res) => {
   res.json({

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/Library");
+const User = require("../models/User");
 
 //Get users entire Library
 
