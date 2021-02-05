@@ -26,6 +26,13 @@ app.use(express.json());
 //import routes
 const postRoute = require('./routes/devEdLibrary')
 const authRoute = require("./routes/devEdAuth");
+
+const { requiresAuth } = require('express-openid-connect');
+
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
+
 //route middleware
 app.use("/api/user", authRoute);
 app.use("/api/posts", postRoute);
