@@ -20,7 +20,14 @@ app.get("/", (req, res) => {
   res.send("We are running");
 });
 
-
+//Middleware
+app.use(express.json());
+//route middleware
+app.use("/api/user", authRoute);
+app.use("/api/posts", postRoute);
+//import routes
+const postRoute = require('./Routes/posts')
+const authRoute = require("./Routes/auth");
 
 //Connect to db
 mongoose.connect(

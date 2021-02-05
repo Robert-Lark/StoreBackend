@@ -1,19 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/User");
-
-
-
+const User = require("../models/Library");
 
 //Get users entire Library
 
 router.get("/", async (req, res) => {
-  try{
+  try {
     const library = await User.find();
-    res.json(library)
+    res.json(library);
+  } catch (err) {
+    res.status(400).json({message: `there was an error: ${err}`});
   }
-  catch(err){
-    res.status(400).json({message: `there was an error: ${err}`})
+});
+
+router.get("/:email", async (req, res) => {
+  const id = email
+  try {
+    const user = await User.find({nickname:req.params.userId});
+    res.json(user);
+  } catch (err) {
+    res.status(400).json({message: `there was an error: ${err}`});
   }
 });
 
